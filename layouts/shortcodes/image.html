@@ -1,0 +1,67 @@
+{{- /* HOW TO USE
+{{< image
+  type="image OR imagecoverattrib"
+
+  imgheight=""
+  imgwidth=""
+
+  imgsrc=""
+  imglink=""
+  imgrel="noopener external nofollow"
+
+  imgtitle="formal title"
+  imgcaption="description"
+  imgalt=""
+
+  attribalign=""
+
+  licensecode="any OR cc0 OR publicdomain OR allrightsreserved"
+  licenseurl=""
+  licensename=""
+
+  attribto=""
+  attriblink=""
+  attribrel="noopener external nofollow"
+>}}
+*/ -}}
+
+{{- if eq (.Get "type") "imagecoverattrib" }}
+  <div class="header_attribution">
+    <footer class="attribution_copyright">
+{{ else }}
+  {{- /* keep <figure> centered, if we want to change the image alignment itself, it should be done inside figure */ -}}
+  <figure class="figure_box txt_center">
+    <div>
+      {{ if .Get "imglink" }}<a href="{{ .Get "imglink" }}"{{ with .Get "imgrel" }} rel="{{ . }}"{{ end }}>{{ end }}
+      <img loading="lazy" src="{{ .Get "imgsrc" }}"{{ if or (.Get "imgalt") (.Get "imgcaption") (.Get "imgtitle") }} alt="{{ with or (.Get "imgalt") (.Get "imgcaption") (.Get "imgtitle") }}{{ . | plainify }}{{ end }}"{{ end }}{{ with .Get "imgheight" }} height="{{ . }}"{{ end }}{{ with .Get "imgwidth" }} width="{{ . }}"{{ end }} />{{ if .Get "imglink" }}</a>{{ end }}
+    </div>
+    <figcaption class="attribution_caption {{ with .Get "attribalign" | default "txt_center" }}{{ . }}{{ end }}">
+      {{ with .Get "imgtitle" }}<p>「<b>{{ . | markdownify }}</b>」</p>{{ end }}
+      {{ with .Get "imgcaption" }}<p><i>{{ . | markdownify }}</i></p>{{ end }}
+{{ end -}}
+
+      <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+        {{- if eq (.Get "licensecode") "allrightsreserved" }}
+          <small>{{ if eq (.Get "type") "imagecoverattrib" }}{{ i18n "word_coverimage" }} {{ i18n "attribution_allrightsreservedcover" }}{{ else }}{{ i18n "attribution_allrightsreserved" }}{{ end }}{{ if .Get "attribto" }} {{ i18n "word_to" }} {{ if .Get "attriblink" }}<a href="{{ .Get "attriblink" }}" rel="dct:creator {{ with .Get "attribrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">{{ end }}{{ .Get "attribto" | markdownify }}{{ end }}{{ if .Get "attriblink" }}</a>{{ end }}{{ i18n "punctuation_fullstop" }}</small>
+        {{ else if eq (.Get "licensecode") "cc0" }}
+          <small>{{ if eq (.Get "type") "imagecoverattrib" }}{{ i18n "word_coverimage" }} {{ end }}{{ i18n "attribution_cc0_extent" }}{{ i18n "punctuation_pause" }} <a href="https://iam.youronly.one" rel="dct:publisher {{ with .Get "attribrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">Yahuhanan Yukia Sese Cuneta</a> {{ i18n "word_has" }} <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener external nofollow" referrerpolicy="strict-origin-when-cross-origin">{{ i18n "attribution_cc0_waived" }}</a> {{ i18n "word_to" }} 「{{ if .Get "imglink" }}<a href="{{ .Get "imglink" }}" rel="dct:title {{ with .Get "imgrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">{{ end }}{{ with or (.Get "imgalt") (.Get "imgcaption") (.Get "imgtitle") }}{{ . | markdownify }}{{ end }}{{ if .Get "imglink" }}</a>{{ end }}」{{ i18n "punctuation_fullstop" }} {{ i18n "attribution_cc0_publishedfrom" }} <span property="vcard:Country" datatype="dct:ISO3166" content="PH" about="https://iam.youronly.one">{{ i18n "word_countryname" }}</span>{{ i18n "punctuation_fullstop" }}</small>
+        {{ else }}
+          <small>
+            {{ if eq (.Get "type") "imagecoverattrib" }}{{ i18n "word_coverimage" }} {{ end }}「{{ if .Get "imglink" }}<a href="{{ .Get "imglink" }}" rel="dct:title {{ with .Get "imgrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">{{ end }}{{ with or (.Get "imgalt") (.Get "imgcaption") (.Get "imgtitle") }}{{ . | markdownify }}{{ end }}{{ if .Get "imglink" }}</a>{{ end }}」{{ if .Get "attribto" }} {{ i18n "attribution_by" }} {{ if .Get "attriblink" }}<a href="{{ .Get "attriblink" }}" rel="dct:creator {{ with .Get "attribrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">{{ end }}{{ .Get "attribto" | markdownify }}{{ if .Get "attriblink" }}</a>{{ end }} {{ i18n "word_is" }} 
+              {{ if ne (.Get "licensecode") "publicdomain" }}
+                {{ i18n "attribution_licensedunder" }} <a href="{{ .Get "licenseurl" }}" rel="license noopener external nofollow" referrerpolicy="strict-origin-when-cross-origin">{{ if eq (.Get "licensecode") "ccbysa4" }}{{ i18n "attribution_ccbysa4" }}{{ else }}{{ with .Get "licensename" }}{{ . }}{{ end }}{{ end }}</a>{{ i18n "punctuation_fullstop" }}
+              {{ else }}
+                <a href="https://creativecommons.org/publicdomain/mark/1.0/" rel="license noopener external nofollow" referrerpolicy="strict-origin-when-cross-origin">{{ i18n "attribution_publicdomain" }}</a>{{ i18n "punctuation_fullstop" }}
+              {{ end }}
+            {{ end }}
+          </small>
+        {{ end }}
+      </p>
+
+{{- if eq (.Get "type") "imagecoverattrib" }}
+    </footer>
+  </div>
+{{ else }}
+    </figcaption>
+  </figure>
+{{ end -}}
