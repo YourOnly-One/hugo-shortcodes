@@ -1,4 +1,4 @@
-# Hugo Shortcodes used by and in YourOnly.One
+# Shortcodes for [Hugo](https://gohugo.io)
 These are a collection of custom shortcodes used in [YourOnly.One](https://YourOnly.One) and other Hugo-powered websites made by YourOnly.One.
 
 ## Shortcodes
