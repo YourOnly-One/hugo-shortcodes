@@ -25,14 +25,15 @@ These are a collection of custom shortcodes used in [YourOnly.One](https://YourO
           git pull
           ```
 1. Add `hugo-shortcodes` in your project:
+
     `config.toml`:
     ```toml
-    theme = ["<mark>hugo-shortcodes</mark>", "my-theme"]
+    theme = ["hugo-shortcodes", "my-theme"]
     ```
     `config.yaml`:
     ```yaml
     theme:
-      - <mark>hugo-shortcodes</mark>
+      - hugo-shortcodes
       - my-theme
     ```
 
