@@ -1,5 +1,5 @@
 # Shortcodes for [Hugo](https://gohugo.io)
-These are a collection of custom shortcodes used in [YourOnly.One](https://YourOnly.One) and other Hugo-powered websites made by YourOnly.One.
+A collection of custom shortcodes used in [YourOnly.One](https://YourOnly.One) and other Hugo-powered websites made by YourOnly.One.
 
 ## Setup
 1. Add Hugo Shortcodes git in your Hugo project:
