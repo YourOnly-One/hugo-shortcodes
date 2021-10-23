@@ -3,7 +3,7 @@
 
 name = "YourOnly.One Shortcodes for Hugo"
 license = "MIT"
-licenselink = "https://github.com/techmagus/hugo-shortcodes/blob/master/LICENSE"
+licenselink = "https://github.com/YourOnly-One/hugo-shortcodes/blob/master/LICENSE"
 description = "Hugo shortcodes used by and in YourOnly.One."
 
 # The home page of the theme, where the source can be found.
