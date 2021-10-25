@@ -65,4 +65,4 @@
     </figcaption>
   </figure>
 {{ end -}}
-{{- if ne (.Get "type") "imagecoverattrib" }}{{ partial "schemas/schema_ImageObject.html" . | safeJS | safeHTML }}{{ end -}}
+{{- if and (templates.Exists "partials/schemas/schema_ImageObject.html") (ne (.Get "type") "imagecoverattrib") -}}{{- partial "schemas/schema_ImageObject.html" . -}}{{- end -}}
