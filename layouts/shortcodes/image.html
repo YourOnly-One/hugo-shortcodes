@@ -65,3 +65,4 @@
     </figcaption>
   </figure>
 {{ end -}}
+{{- if ne (.Get "type") "imagecoverattrib" }}{{ partial "schemas/schema_ImageObject.html" . | safeJS | safeHTML }}{{ end -}}
