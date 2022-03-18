@@ -1,0 +1,18 @@
+{{- /* HOW TO USE
+{{< map src="" link="" >}}
+*/ -}}
+{{- /* TODO
+  Objectives:
+    1. ref shortcode with custom LANG and multilingual TITLE
+*/ -}}
+{{- $lang := .Get "lang" -}}
+{{- $path := .Get "path" -}}
+<a href="{{ ref . .Params }}">{{ with .Site.GetPage $path }}{{ .Title }}{{ end }}</a>
+
+<br/>
+
+{{ .Site.GetPage $path }}
+
+<br/>
+
+{{ with .Site.GetPage (.Get "path") }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}
