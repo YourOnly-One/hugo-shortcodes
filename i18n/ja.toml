@@ -47,6 +47,11 @@
     other = "による音楽"
 # END: attribution and license
 
+# BGN: phrases
+  [viewlargermap]
+    other = "大きな地図を見る"
+# END: phrases
+
 # BGN: generic words
   [word_is]
     other = "です"

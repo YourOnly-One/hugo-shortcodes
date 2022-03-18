@@ -47,6 +47,11 @@
     other = "Music by"
 # END: attribution and license
 
+# BGN: phrases
+  [viewlargermap]
+    other = "View larger map"
+# END: phrases
+
 # BGN: generic words
   [word_is]
     other = "is"

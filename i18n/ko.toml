@@ -47,6 +47,11 @@
     other = "음악"
 # END: attribution and license
 
+# BGN: phrases
+  [viewlargermap]
+    other = "더 큰 지도 보기"
+# END: phrases
+
 # BGN: generic words
   [word_is]
     other = "이다"
