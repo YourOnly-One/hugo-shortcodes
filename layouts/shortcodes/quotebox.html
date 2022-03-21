@@ -31,7 +31,7 @@ OR
   </blockquote>
   {{ if or ( .Get "attribto" ) ( .Get "srctitle" ) }}
   <figcaption class="attribution_name {{ with .Get "attribalign" }}{{ . }}{{ end }}">
-    <p>「<cite>{{ if .Get "srclink" }}<a href="{{ .Get "srclink" }}" rel="dct:title {{ with .Get "srcrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">{{ end }}{{ with .Get "srctitle" }}{{ . | markdownify }}{{ end }}{{ if .Get "srclink" }}</a>{{ end }}</cite>」{{ if .Get "attribto" }}{{ i18n "quote_src" }} {{ if .Get "attriblink" }}<a href="{{ .Get "attriblink" }}" rel="dct:creator {{ with .Get "attribrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">{{ end }}{{ .Get "attribto" | markdownify }}{{ if .Get "attriblink" }}</a>{{ end }}{{ end }}</p>
+    <p><cite>{{ if .Get "srclink" }}<a href="{{ .Get "srclink" }}" rel="dct:title {{ with .Get "srcrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">{{ end }}{{ with .Get "srctitle" }}{{ . | markdownify }}{{ end }}{{ if .Get "srclink" }}</a>{{ end }}</cite>{{ if .Get "attribto" }}{{ i18n "quote_src" }} {{ if .Get "attriblink" }}<a href="{{ .Get "attriblink" }}" rel="dct:creator {{ with .Get "attribrel" }}{{ . }}{{ end }}" referrerpolicy="strict-origin-when-cross-origin">{{ end }}{{ .Get "attribto" | markdownify }}{{ if .Get "attriblink" }}</a>{{ end }}{{ end }}</p>
   </figcaption>
   {{ end }}
 </figure>
